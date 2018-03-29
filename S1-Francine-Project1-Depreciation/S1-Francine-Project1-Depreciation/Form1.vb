@@ -5,7 +5,7 @@
 
     Private Sub btnStraightLine_Click(sender As Object, e As EventArgs) Handles btnStraightLine.Click
         If trueData() = "OK" Then
-            showDepreciationResult(CInt(txtYearOfPurchase.Text), CDbl(txtEstimatedLifeOfItem.Text), CDbl(txtCost.Text), txtItem.Text, "straight")
+            showDepreciationResult(CInt(txtYearOfPurchase.Text), CDbl(txtEstimatedLifeOfItem.Text), CDbl(txtCost.Text), txtItem.Text, "straight-line")
         Else
             MessageBox.Show(trueData(), "Warning")
         End If
@@ -25,11 +25,11 @@
         Dim currentValue As Double = itemValue
         lstResult.Items.Clear()
         lstResult.Items.Add("Description: " & itemName)
-        lstResult.Items.Add("Year of purchase " & CStr(startYear))
-        lstResult.Items.Add("Esimated life " & CStr(usageLife))
-        lstResult.Items.Add("Methods " & depreciationMethod)
+        lstResult.Items.Add("Year of purchase: " & CStr(startYear))
+        lstResult.Items.Add("Esimated life: " & CStr(usageLife))
+        lstResult.Items.Add("Methods: " & depreciationMethod)
         lstResult.Items.Add("")
-        If depreciationMethod = "straight" Then
+        If depreciationMethod = "straight-line" Then
             depreciationRate = 1.0 / usageLife
             depreciationLife = usageLife
         Else
@@ -39,14 +39,22 @@
             Else
                 depreciationLife = usageLife / 2.0
             End If
-            depreciationLife = usageLife / 2.0
         End If
         depreciationValue = depreciationRate * itemValue
         totalDepreciationValue = 0
         For index = 1 To depreciationLife
+            If currentValue = 0 Then
+                Exit For
+            End If
             lstResult.Items.Add("Value at beginning of " & CStr(startYear) & " : " & currentValue.ToString("C"))
-            currentValue -= depreciationValue
-            totalDepreciationValue += depreciationValue
+            If currentValue < depreciationValue Then
+                depreciationValue = currentValue
+                totalDepreciationValue += currentValue
+                currentValue = 0
+            Else
+                currentValue -= depreciationValue
+                totalDepreciationValue += depreciationValue
+            End If
             lstResult.Items.Add("Amount of depreciation during" & CStr(startYear) & " : " & depreciationValue.ToString("C"))
             lstResult.Items.Add("total depreciation at end of " & CStr(startYear) & " : " & totalDepreciationValue.ToString("C"))
             lstResult.Items.Add("")
@@ -56,7 +64,7 @@
 
     Private Sub btnDoubleDecling_Click(sender As Object, e As EventArgs) Handles btnDoubleDecling.Click
         If trueData() = "OK" Then
-            showDepreciationResult(CInt(txtYearOfPurchase.Text), CDbl(txtEstimatedLifeOfItem.Text), CDbl(txtCost.Text), txtItem.Text, "double")
+            showDepreciationResult(CInt(txtYearOfPurchase.Text), CDbl(txtEstimatedLifeOfItem.Text), CDbl(txtCost.Text), txtItem.Text, "double-declining-balance")
         Else
             MessageBox.Show(trueData(), "Warning")
         End If
