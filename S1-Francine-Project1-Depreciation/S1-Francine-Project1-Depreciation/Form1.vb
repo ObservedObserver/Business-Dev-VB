@@ -14,8 +14,14 @@
     Function trueData() As String
         If txtItem.Text = "" Then
             Return "Please enter right item value!"
+        ElseIf txtCost.Text = "" Then
+            Return "Please enter right cost value!"
+        ElseIf txtYearOfPurchase.Text = "" Then
+            Return "Please enter right Tear of Purchase value!"
+        ElseIf txtEstimatedLifeOfItem.Text = "" Then
+            Return "Please enter right Estimated Life of Item!"
         ElseIf CDbl(txtEstimatedLifeOfItem.Text) = 0 Then
-            Return "Please enter a EstimatedLifeOfItem value > 0 !"
+            Return "Please enter a EstimatedLifeOfItem value > 0 !!"
         End If
         Return "OK"
     End Function
@@ -24,7 +30,7 @@
         Dim depreciationRate, depreciationValue, totalDepreciationValue, depreciationLife As Double
         Dim currentValue As Double = itemValue
         lstResult.Items.Clear()
-        lstResult.Items.Add("Description: " & itemName)
+        lstResult.Items.Add("Description!!: " & itemName)
         lstResult.Items.Add("Year of purchase: " & CStr(startYear))
         lstResult.Items.Add("Esimated life: " & CStr(usageLife))
         lstResult.Items.Add("Methods: " & depreciationMethod)
@@ -42,18 +48,16 @@
         End If
         depreciationValue = depreciationRate * itemValue
         totalDepreciationValue = 0
-        For index = 1 To depreciationLife
-            If currentValue = 0 Then
-                Exit For
-            End If
+        For index = 1 To usageLife
             lstResult.Items.Add("Value at beginning of " & CStr(startYear) & " : " & currentValue.ToString("C"))
-            If currentValue < depreciationValue Then
-                depreciationValue = currentValue
-                totalDepreciationValue += currentValue
-                currentValue = 0
-            Else
+            If depreciationMethod = "straight-line" Then
                 currentValue -= depreciationValue
                 totalDepreciationValue += depreciationValue
+            Else
+                depreciationValue = currentValue * depreciationRate
+                totalDepreciationValue += depreciationValue
+                currentValue -= depreciationValue
+                lstResult.Items.Add(CStr(currentValue) & "*" & CStr(depreciationRate))
             End If
             lstResult.Items.Add("Amount of depreciation during" & CStr(startYear) & " : " & depreciationValue.ToString("C"))
             lstResult.Items.Add("total depreciation at end of " & CStr(startYear) & " : " & totalDepreciationValue.ToString("C"))
