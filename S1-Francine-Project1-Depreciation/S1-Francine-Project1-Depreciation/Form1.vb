@@ -3,15 +3,6 @@
 
     End Sub
 
-    ' straight-line 按钮的点击事件
-    Private Sub btnStraightLine_Click(sender As Object, e As EventArgs) Handles btnStraightLine.Click
-        If TrueData() = "OK" Then
-            ShowDepreciationResult(CInt(txtYearOfPurchase.Text), CDbl(txtEstimatedLifeOfItem.Text), CDbl(txtCost.Text), txtItem.Text, "straight-line")
-        Else
-            MessageBox.Show(TrueData(), "Warning")
-        End If
-    End Sub
-
     '判断数据格式是否正确 
     Function TrueData() As String
         If txtItem.Text = "" Then
@@ -25,6 +16,7 @@
         ElseIf CDbl(txtEstimatedLifeOfItem.Text) = 0 Then
             Return "Please enter a EstimatedLifeOfItem value > 0 !!"
         End If
+        '如果数据格式正确，返回"ok"
         Return "OK"
     End Function
     ' 展示list上的基本信息部分
@@ -63,6 +55,7 @@
                 Exit For
             End If
             lstResult.Items.Add("Value at beginning of " & CStr(startYear) & " : " & currentValue.ToString("C"))
+            ' 根据折旧方法计算每年折旧量，累计折旧量，与剩余价值。
             If depreciationMethod = "straight-line" Then
                 currentValue -= depreciationValue
                 totalDepreciationValue += depreciationValue
@@ -78,12 +71,19 @@
             startYear += 1
         Next
     End Sub
-    ' double-declining-balance 按钮的点击事件
-    Private Sub btnDoubleDecling_Click(sender As Object, e As EventArgs) Handles btnDoubleDecling.Click
+
+    Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
+        Dim method As String
         If TrueData() = "OK" Then
-            ShowDepreciationResult(CInt(txtYearOfPurchase.Text), CDbl(txtEstimatedLifeOfItem.Text), CDbl(txtCost.Text), txtItem.Text, "double-declining-balance")
+            ' 检查折旧方法
+            If radStraight.Checked = True Then
+                method = "straight-line"
+            Else
+                method = "double-deciling"
+            End If
+            ShowDepreciationResult(CInt(txtYearOfPurchase.Text), CDbl(txtEstimatedLifeOfItem.Text), CDbl(txtCost.Text), txtItem.Text, method)
         Else
-            MessageBox.Show(trueData(), "Warning")
+            MessageBox.Show(TrueData(), "Warning")
         End If
     End Sub
 End Class
