@@ -86,4 +86,17 @@
             MessageBox.Show(TrueData(), "Warning")
         End If
     End Sub
+    ' 点击Clear, 清空所有值并将单选框还原为默认值(straight-line)
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        txtCost.Clear()
+        txtItem.Clear()
+        txtYearOfPurchase.Clear()
+        txtEstimatedLifeOfItem.Clear()
+        radDouble.Checked = False
+        radStraight.Checked = True
+    End Sub
+    ' 点击Exit, 推出应用
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+        End
+    End Sub
 End Class

@@ -30,9 +30,9 @@ Partial Class Depreciation
         Me.txtEstimatedLifeOfItem = New System.Windows.Forms.TextBox()
         Me.txtYearOfPurchase = New System.Windows.Forms.TextBox()
         Me.txtCost = New System.Windows.Forms.TextBox()
-        Me.btnStraightLine = New System.Windows.Forms.Button()
+        Me.btnClear = New System.Windows.Forms.Button()
         Me.lstResult = New System.Windows.Forms.ListBox()
-        Me.btnDoubleDecling = New System.Windows.Forms.Button()
+        Me.btnExit = New System.Windows.Forms.Button()
         Me.radStraight = New System.Windows.Forms.RadioButton()
         Me.radDouble = New System.Windows.Forms.RadioButton()
         Me.btnCalculate = New System.Windows.Forms.Button()
@@ -102,14 +102,14 @@ Partial Class Depreciation
         Me.txtCost.Size = New System.Drawing.Size(100, 25)
         Me.txtCost.TabIndex = 2
         '
-        'btnStraightLine
+        'btnClear
         '
-        Me.btnStraightLine.Location = New System.Drawing.Point(315, 283)
-        Me.btnStraightLine.Name = "btnStraightLine"
-        Me.btnStraightLine.Size = New System.Drawing.Size(140, 50)
-        Me.btnStraightLine.TabIndex = 8
-        Me.btnStraightLine.Text = "Straight Line Method"
-        Me.btnStraightLine.UseVisualStyleBackColor = True
+        Me.btnClear.Location = New System.Drawing.Point(315, 283)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(140, 50)
+        Me.btnClear.TabIndex = 8
+        Me.btnClear.Text = "Clear"
+        Me.btnClear.UseVisualStyleBackColor = True
         '
         'lstResult
         '
@@ -120,14 +120,14 @@ Partial Class Depreciation
         Me.lstResult.Size = New System.Drawing.Size(311, 204)
         Me.lstResult.TabIndex = 10
         '
-        'btnDoubleDecling
+        'btnExit
         '
-        Me.btnDoubleDecling.Location = New System.Drawing.Point(532, 283)
-        Me.btnDoubleDecling.Name = "btnDoubleDecling"
-        Me.btnDoubleDecling.Size = New System.Drawing.Size(140, 50)
-        Me.btnDoubleDecling.TabIndex = 11
-        Me.btnDoubleDecling.Text = "Double Decling Method"
-        Me.btnDoubleDecling.UseVisualStyleBackColor = True
+        Me.btnExit.Location = New System.Drawing.Point(532, 283)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.Size = New System.Drawing.Size(140, 50)
+        Me.btnExit.TabIndex = 11
+        Me.btnExit.Text = "Exit"
+        Me.btnExit.UseVisualStyleBackColor = True
         '
         'radStraight
         '
@@ -169,9 +169,9 @@ Partial Class Depreciation
         Me.Controls.Add(Me.btnCalculate)
         Me.Controls.Add(Me.radDouble)
         Me.Controls.Add(Me.radStraight)
-        Me.Controls.Add(Me.btnDoubleDecling)
+        Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.lstResult)
-        Me.Controls.Add(Me.btnStraightLine)
+        Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.txtCost)
         Me.Controls.Add(Me.txtYearOfPurchase)
         Me.Controls.Add(Me.txtEstimatedLifeOfItem)
@@ -197,9 +197,9 @@ Partial Class Depreciation
     Friend WithEvents txtEstimatedLifeOfItem As TextBox
     Friend WithEvents txtYearOfPurchase As TextBox
     Friend WithEvents txtCost As TextBox
-    Friend WithEvents btnStraightLine As Button
+    Friend WithEvents btnClear As Button
     Friend WithEvents lstResult As ListBox
-    Friend WithEvents btnDoubleDecling As Button
+    Friend WithEvents btnExit As Button
     Friend WithEvents radStraight As RadioButton
     Friend WithEvents radDouble As RadioButton
     Friend WithEvents btnCalculate As Button
