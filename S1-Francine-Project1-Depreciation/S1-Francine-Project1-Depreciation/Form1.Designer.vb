@@ -36,6 +36,8 @@ Partial Class Depreciation
         Me.radStraight = New System.Windows.Forms.RadioButton()
         Me.radDouble = New System.Windows.Forms.RadioButton()
         Me.btnCalculate = New System.Windows.Forms.Button()
+        Me.grpMethods = New System.Windows.Forms.GroupBox()
+        Me.grpMethods.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblItem
@@ -133,7 +135,7 @@ Partial Class Depreciation
         '
         Me.radStraight.AutoSize = True
         Me.radStraight.Checked = True
-        Me.radStraight.Location = New System.Drawing.Point(64, 192)
+        Me.radStraight.Location = New System.Drawing.Point(17, 24)
         Me.radStraight.Name = "radStraight"
         Me.radStraight.Size = New System.Drawing.Size(170, 24)
         Me.radStraight.TabIndex = 12
@@ -144,7 +146,7 @@ Partial Class Depreciation
         'radDouble
         '
         Me.radDouble.AutoSize = True
-        Me.radDouble.Location = New System.Drawing.Point(64, 222)
+        Me.radDouble.Location = New System.Drawing.Point(17, 51)
         Me.radDouble.Name = "radDouble"
         Me.radDouble.Size = New System.Drawing.Size(192, 24)
         Me.radDouble.TabIndex = 13
@@ -161,14 +163,24 @@ Partial Class Depreciation
         Me.btnCalculate.Text = "Calculate"
         Me.btnCalculate.UseVisualStyleBackColor = True
         '
+        'grpMethods
+        '
+        Me.grpMethods.Controls.Add(Me.radStraight)
+        Me.grpMethods.Controls.Add(Me.radDouble)
+        Me.grpMethods.Location = New System.Drawing.Point(53, 187)
+        Me.grpMethods.Name = "grpMethods"
+        Me.grpMethods.Size = New System.Drawing.Size(306, 81)
+        Me.grpMethods.TabIndex = 15
+        Me.grpMethods.TabStop = False
+        Me.grpMethods.Text = "Depreciation Method"
+        '
         'Depreciation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(760, 370)
+        Me.Controls.Add(Me.grpMethods)
         Me.Controls.Add(Me.btnCalculate)
-        Me.Controls.Add(Me.radDouble)
-        Me.Controls.Add(Me.radStraight)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.lstResult)
         Me.Controls.Add(Me.btnClear)
@@ -184,6 +196,8 @@ Partial Class Depreciation
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Depreciation"
         Me.Text = "Depreciation"
+        Me.grpMethods.ResumeLayout(False)
+        Me.grpMethods.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -203,4 +217,5 @@ Partial Class Depreciation
     Friend WithEvents radStraight As RadioButton
     Friend WithEvents radDouble As RadioButton
     Friend WithEvents btnCalculate As Button
+    Friend WithEvents grpMethods As GroupBox
 End Class
