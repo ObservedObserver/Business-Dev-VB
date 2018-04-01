@@ -1,8 +1,4 @@
 ﻿Public Class Depreciation
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles lblItem.Click
-
-    End Sub
-
     ' Task: Check data format
     ' Check wheter the data format is correct.
     ' Return a string to show the specific problem of current format
