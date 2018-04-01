@@ -148,10 +148,10 @@ Partial Class Depreciation
         Me.radDouble.AutoSize = True
         Me.radDouble.Location = New System.Drawing.Point(17, 51)
         Me.radDouble.Name = "radDouble"
-        Me.radDouble.Size = New System.Drawing.Size(192, 24)
+        Me.radDouble.Size = New System.Drawing.Size(251, 24)
         Me.radDouble.TabIndex = 13
         Me.radDouble.TabStop = True
-        Me.radDouble.Text = "Double-decling-method"
+        Me.radDouble.Text = "Double-decling-balance-method"
         Me.radDouble.UseVisualStyleBackColor = True
         '
         'btnCalculate

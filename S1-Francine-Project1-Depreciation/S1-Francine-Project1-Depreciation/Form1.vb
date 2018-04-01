@@ -20,10 +20,11 @@
     ' Task: Show basic info
     ' Show the input data in the listbox
     ' Including item name, year of purchase, esimated life and depreciation method
-    Private Sub ShowBasicInfo(ByVal startYear As String, ByVal usageLife As String, ByVal itemName As String, ByVal depreciationMethod As String)
+    Private Sub ShowBasicInfo(ByVal startYear As String, ByVal usageLife As String, ByVal cost As String, ByVal itemName As String, ByVal depreciationMethod As String)
         lstResult.Items.Clear()
         lstResult.Items.Add("Description: " & itemName)
         lstResult.Items.Add("Year of purchase: " & startYear)
+        lstResult.Items.Add("Cost: " & cost)
         lstResult.Items.Add("Esimated life: " & usageLife)
         lstResult.Items.Add("Methods: " & depreciationMethod)
         lstResult.Items.Add("")
@@ -101,7 +102,7 @@
     ' Result includes basic info and each year depreciation
     Private Sub ShowDepreciationResult(ByVal startYear As Integer, ByVal usageLife As Double, ByVal itemValue As Double, ByVal itemName As String, ByVal depreciationMethod As String)
         ' Show basic info
-        ShowBasicInfo(startYear, CStr(usageLife), CStr(itemName), depreciationMethod)
+        ShowBasicInfo(startYear, CStr(usageLife), itemValue.ToString("C"), CStr(itemName), depreciationMethod)
         ' Show each year depreciation base on depreciation method
         If depreciationMethod = "straight-line" Then
             ShowSLDepreciation(startYear, usageLife, itemValue, itemName, depreciationMethod)
