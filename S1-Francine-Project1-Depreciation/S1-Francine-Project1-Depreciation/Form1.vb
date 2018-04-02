@@ -20,7 +20,8 @@
     ' Task: Show basic info
     ' Show the input data in the listbox
     ' Including item name, year of purchase, esimated life and depreciation method
-    Private Sub ShowBasicInfo(ByVal startYear As String, ByVal usageLife As String, ByVal cost As String, ByVal itemName As String, ByVal depreciationMethod As String)
+    Private Sub ShowBasicInfo(ByVal startYear As String, ByVal usageLife As String, ByVal cost As String, ByVal itemName As String,
+                              ByVal depreciationMethod As String)
         lstResult.Items.Clear()
         lstResult.Items.Add("Description: " & itemName)
         lstResult.Items.Add("Year of purchase: " & startYear)
@@ -44,7 +45,8 @@
     ' Task: Show straight-line method depreciation each year
     ' Show the depreciation infomation each year in the listbox (using straight-line method)
     ' Including value at beginning of the year, Amount of depreciation during the year and total depreciation at end of the year
-    Private Sub ShowSLDepreciation(ByVal startYear As Integer, ByVal usageLife As Double, ByVal itemValue As Double, ByVal itemName As String, ByVal depreciationMethod As String)
+    Private Sub ShowSLDepreciation(ByVal startYear As Integer, ByVal usageLife As Double, ByVal itemValue As Double, ByVal itemName As String,
+                                   ByVal depreciationMethod As String)
         Dim depreciationRate, depreciationValue, totalDepreciationValue As Double
         Dim currentValue As Double = itemValue
         ' get depreciation rate
@@ -72,7 +74,8 @@
     ' Task: Show double-declining-balance method depreciation each year
     ' Show the depreciation infomation each year in the listbox (using double-declining-balance method)
     ' Including value at beginning of the year, Amount of depreciation during the year and total depreciation at end of the year
-    Private Sub ShowDDBDepreciation(ByVal startYear As Integer, ByVal usageLife As Double, ByVal itemValue As Double, ByVal itemName As String, ByVal depreciationMethod As String)
+    Private Sub ShowDDBDepreciation(ByVal startYear As Integer, ByVal usageLife As Double, ByVal itemValue As Double,
+                                    ByVal itemName As String, ByVal depreciationMethod As String)
         Dim depreciationRate, depreciationValue, totalDepreciationValue As Double
         Dim currentValue As Double = itemValue
         ' get depreciation rate
@@ -80,16 +83,20 @@
         ' init total depreciation as 0
         totalDepreciationValue = 0
         For index = 1 To usageLife
-            If currentValue <= 0 Then
-                Exit For
-            End If
             lstResult.Items.Add("Value at beginning of " & CStr(startYear) & " : " & currentValue.ToString("C"))
 
-            ' staright-line method has a changing depreciation value each year
-            depreciationValue = currentValue * depreciationRate
-            ' compute total depreciation and current value
-            totalDepreciationValue += depreciationValue
-            currentValue -= depreciationValue
+            If index = usageLife Then
+                ' fix depreciation in the last year
+                depreciationValue = currentValue
+                totalDepreciationValue = itemValue
+                currentValue = 0
+            Else
+                ' staright-line method has a changing depreciation value each year
+                depreciationValue = currentValue * depreciationRate
+                ' compute total depreciation and current value
+                totalDepreciationValue += depreciationValue
+                currentValue -= depreciationValue
+            End If
 
             lstResult.Items.Add("Amount of depreciation during" & CStr(startYear) & " : " & depreciationValue.ToString("C"))
             lstResult.Items.Add("total depreciation at end of " & CStr(startYear) & " : " & totalDepreciationValue.ToString("C"))
@@ -100,7 +107,8 @@
     ' Task: Show depreciation result
     ' Show depreciation in the listbox based on the input data
     ' Result includes basic info and each year depreciation
-    Private Sub ShowDepreciationResult(ByVal startYear As Integer, ByVal usageLife As Double, ByVal itemValue As Double, ByVal itemName As String, ByVal depreciationMethod As String)
+    Private Sub ShowDepreciationResult(ByVal startYear As Integer, ByVal usageLife As Double, ByVal itemValue As Double,
+                                       ByVal itemName As String, ByVal depreciationMethod As String)
         ' Show basic info
         ShowBasicInfo(startYear, CStr(usageLife), itemValue.ToString("C"), CStr(itemName), depreciationMethod)
         ' Show each year depreciation base on depreciation method
