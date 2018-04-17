@@ -86,12 +86,13 @@ Public Class frmPhone
         Dim query = From line In IO.File.ReadAllLines(getFileName(fileName))
                     Let name = line.Split(","c)(0)
                     Let phoneNum = line.Split(","c)(1)
-                    Where name <> txtName.Text
+                    Where name <> cboName.Text
                     Select name & "," & phoneNum
-        IO.File.WriteAllLines(fileName, query.ToArray)
-        txtName.Clear()
-        txtPhoneNumber.Clear()
-        txtName.Focus()
+        IO.File.WriteAllLines(getFileName(fileName), query.ToArray)
+        cboName.Text = ""
+        displayList()
+        'txtPhoneNumber.Clear()
+        'txtName.Focus()
     End Sub
     Private Sub displayList()
         'MessageBox.Show(fileName, "name")
@@ -122,8 +123,8 @@ Public Class frmPhone
         displayList()
     End Sub
 
-    Private Sub cboName_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboName.TextChanged
-        ' cboName.SelectedIndex = cboName.FindString(cboName.Text)
+    Private Sub cboName_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboName.SelectedIndexChanged
+        cboName.SelectedIndex = cboName.FindString(cboName.Text)
     End Sub
 
     Private Sub btnAdmin_Click(sender As Object, e As EventArgs) Handles btnAdmin.Click
@@ -140,5 +141,29 @@ Public Class frmPhone
     Private Sub btnImport_Click(sender As Object, e As EventArgs) Handles btnImport.Click
         OpenFileDialog1.ShowDialog()
         MessageBox.Show(OpenFileDialog1.FileName, "warning")
+        'If OpenFileDialog1.FileName.
+        Dim dirNames() As String = IO.File.ReadAllLines("Directories.txt")
+        Dim sw As IO.StreamWriter = IO.File.AppendText("Directories.txt")
+        Dim newDir As String = OpenFileDialog1.FileName
+        Dim newDirArr() As String = Split(newDir, "\")
+        newDir = newDirArr(newDirArr.Length - 1)
+        newDir = Split(newDir, ".")(0)
+        newDir = newDir.Substring(0, 1).ToUpper() & newDir.Substring(1, Len(newDir) - 1).ToLower()
+        'MessageBox.Show(newDir, "name")
+        If Array.IndexOf(dirNames, newDir) = -1 Then
+            If Len(newDir) = 0 Then
+                MessageBox.Show("File name is ilag", "warning")
+            Else
+                sw.WriteLine(newDir & ".txt")
+                sw.Close()
+                FileCopy(OpenFileDialog1.FileName, newDir & ".txt")
+                DisplayDirectories()
+            End If
+        End If
+        sw.Close()
+    End Sub
+
+    Private Sub cboName_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles cboName.SelectedIndexChanged
+
     End Sub
 End Class
