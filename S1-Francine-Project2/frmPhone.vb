@@ -155,13 +155,11 @@ Public Class frmPhone
 
     Private Sub btnImport_Click(sender As Object, e As EventArgs) Handles btnImport.Click
         OpenFileDialog1.ShowDialog()
-        MessageBox.Show(OpenFileDialog1.FileName, "warning")
         'If OpenFileDialog1.FileName.
         Dim newDir As String
         Dim newDirArr() As String
         Try
             Dim dirNames() As String = IO.File.ReadAllLines("Directories.txt")
-            Dim sw As IO.StreamWriter = IO.File.AppendText("Directories.txt")
             newDir = OpenFileDialog1.FileName
             newDirArr = Split(newDir, "\")
             newDir = newDirArr(newDirArr.Length - 1)
@@ -170,11 +168,12 @@ Public Class frmPhone
                 MessageBox.Show("We only support txt file currently", "warning")
             Else
                 newDir = Split(newDir, ".")(0)
-                newDir = newDir.Substring(0, 1).ToUpper() & newDir.Substring(1, Len(newDir) - 1).ToLower()
+                newDir = newDir.Substring(0, 1).ToUpper & newDir.Substring(1, Len(newDir) - 1).ToLower
                 If Array.IndexOf(dirNames, newDir) = -1 Then
                     If Len(newDir) = 0 Then
-                        MessageBox.Show("File name is ilag", "warning")
+                        MessageBox.Show("File name is wrong", "warning")
                     Else
+                        Dim sw As IO.StreamWriter = IO.File.AppendText("Directories.txt")
                         sw.WriteLine(newDir & ".txt")
                         sw.Close()
                         FileCopy(OpenFileDialog1.FileName, newDir & ".txt")
