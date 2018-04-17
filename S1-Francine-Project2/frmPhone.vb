@@ -26,20 +26,25 @@ Public Class frmPhone
     End Sub
     Private Sub btnCreate_Click(sender As System.Object, e As System.EventArgs) Handles btnCreate.Click
         Dim dirNames() As String = IO.File.ReadAllLines("Directories.txt")
-        Dim sw As IO.StreamWriter = IO.File.AppendText("Directories.txt")
-        Dim newDir As String = InputBox("Enter a file name.").ToUpper
-        Dim fileNameOK = True
-        If Array.IndexOf(dirNames, newDir) = -1 Then
-            If Len(newDir) = 0 Then
-                MessageBox.Show("File name is ilag", "warning")
-            Else
-                Dim sw2 As IO.StreamWriter = IO.File.CreateText(newDir & ".txt")
-                sw.WriteLine(newDir & ".txt")
-                sw2.Close()
+        Dim newDir As String = InputBox("Enter a file name.").Trim
+        If newDir.Split(" "c).Length > 1 Then
+            MessageBox.Show("Only one-word name is accepted.", "waring")
+        Else
+            newDir = newDir.Substring(0, 1).ToUpper & newDir.Substring(1, newDir.Length - 1).ToLower
+            Dim fileNameOK = True
+            If Array.IndexOf(dirNames, getFileName(newDir)) = -1 Then
+                If Len(newDir) = 0 Then
+                    MessageBox.Show("File name is ilag", "warning")
+                Else
+                    Dim sw As IO.StreamWriter = IO.File.AppendText("Directories.txt")
+                    Dim sw2 As IO.StreamWriter = IO.File.CreateText(getFileName(newDir))
+                    sw.WriteLine(getFileName(newDir))
+                    sw2.Close()
+                    sw.Close()
+                End If
             End If
+            DisplayDirectories()
         End If
-        sw.Close()
-        DisplayDirectories()
     End Sub
 
     Private Sub btnOpen_Click(sender As System.Object, e As System.EventArgs)
@@ -71,9 +76,19 @@ Public Class frmPhone
        (txtPhoneNumber.Text.Trim.Length = 0) Then
             MessageBox.Show("You must enter a name and number.")
         Else
+
+            Dim query = From line In IO.File.ReadAllLines(getFileName(fileName))
+                        Let name = line.Split(","c)(0)
+                        Let phoneNum = line.Split(","c)(1)
+                        Where name <> txtName.Text
+                        Select name & "," & phoneNum
+            IO.File.WriteAllLines(getFileName(fileName), query.ToArray)
             Dim sw As IO.StreamWriter = IO.File.AppendText(getFileName(fileName))
-            sw.WriteLine(txtName.Text & "," & txtPhoneNumber.Text)
+            sw.WriteLine(txtName.Text.Trim & "," & txtPhoneNumber.Text.Trim)
             sw.Close()
+            'Dim sw As IO.StreamWriter = IO.File.AppendText(getFileName(fileName))
+            'sw.WriteLine(txtName.Text & "," & txtPhoneNumber.Text)
+            'sw.Close()
             txtName.Clear()
             txtPhoneNumber.Clear()
             txtName.Focus()
@@ -142,25 +157,35 @@ Public Class frmPhone
         OpenFileDialog1.ShowDialog()
         MessageBox.Show(OpenFileDialog1.FileName, "warning")
         'If OpenFileDialog1.FileName.
-        Dim dirNames() As String = IO.File.ReadAllLines("Directories.txt")
-        Dim sw As IO.StreamWriter = IO.File.AppendText("Directories.txt")
-        Dim newDir As String = OpenFileDialog1.FileName
-        Dim newDirArr() As String = Split(newDir, "\")
-        newDir = newDirArr(newDirArr.Length - 1)
-        newDir = Split(newDir, ".")(0)
-        newDir = newDir.Substring(0, 1).ToUpper() & newDir.Substring(1, Len(newDir) - 1).ToLower()
-        'MessageBox.Show(newDir, "name")
-        If Array.IndexOf(dirNames, newDir) = -1 Then
-            If Len(newDir) = 0 Then
-                MessageBox.Show("File name is ilag", "warning")
+        Dim newDir As String
+        Dim newDirArr() As String
+        Try
+            Dim dirNames() As String = IO.File.ReadAllLines("Directories.txt")
+            Dim sw As IO.StreamWriter = IO.File.AppendText("Directories.txt")
+            newDir = OpenFileDialog1.FileName
+            newDirArr = Split(newDir, "\")
+            newDir = newDirArr(newDirArr.Length - 1)
+            Dim fileType As String = Split(newDir, ".")(1)
+            If fileType.ToLower <> "txt" Then
+                MessageBox.Show("We only support txt file currently", "warning")
             Else
-                sw.WriteLine(newDir & ".txt")
-                sw.Close()
-                FileCopy(OpenFileDialog1.FileName, newDir & ".txt")
-                DisplayDirectories()
+                newDir = Split(newDir, ".")(0)
+                newDir = newDir.Substring(0, 1).ToUpper() & newDir.Substring(1, Len(newDir) - 1).ToLower()
+                If Array.IndexOf(dirNames, newDir) = -1 Then
+                    If Len(newDir) = 0 Then
+                        MessageBox.Show("File name is ilag", "warning")
+                    Else
+                        sw.WriteLine(newDir & ".txt")
+                        sw.Close()
+                        FileCopy(OpenFileDialog1.FileName, newDir & ".txt")
+                        DisplayDirectories()
+                    End If
+                End If
             End If
-        End If
-        sw.Close()
+        Catch
+            MessageBox.Show("Check your file format(name and type)", "warning")
+        End Try
+
     End Sub
 
     Private Sub cboName_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles cboName.SelectedIndexChanged
