@@ -23,7 +23,7 @@
 
     Private Sub btnMatainPhone_Click(sender As Object, e As EventArgs) Handles btnMatainPhone.Click
         Me.Hide()
-        'frmDir.Show()
+        frmList.Show()
     End Sub
 
     Private Sub btnMatainDir_Click(sender As Object, e As EventArgs) Handles btnMatainDir.Click

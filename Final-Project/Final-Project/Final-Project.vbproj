@@ -85,6 +85,12 @@
     <Compile Include="Form2.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form3.Designer.vb">
+      <DependentUpon>Form3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form3.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -110,6 +116,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PhoneDirectoryGroupings1DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="PhoneDirectoryGroupings1DataSet2.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PhoneDirectoryGroupings1DataSet2.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
@@ -117,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -157,6 +171,17 @@
     </None>
     <None Include="PhoneDirectoryGroupings1DataSet1.xss">
       <DependentUpon>PhoneDirectoryGroupings1DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="PhoneDirectoryGroupings1DataSet2.xsc">
+      <DependentUpon>PhoneDirectoryGroupings1DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="PhoneDirectoryGroupings1DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PhoneDirectoryGroupings1DataSet2.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PhoneDirectoryGroupings1DataSet2.xss">
+      <DependentUpon>PhoneDirectoryGroupings1DataSet2.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
