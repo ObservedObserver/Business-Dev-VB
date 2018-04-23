@@ -72,6 +72,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FinalDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinalDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +94,18 @@
       <DependentUpon>Form3.vb</DependentUpon>
     </Compile>
     <Compile Include="Form3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form4.Designer.vb">
+      <DependentUpon>Form4.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form4.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form5.Designer.vb">
+      <DependentUpon>Form5.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form5.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -121,6 +138,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PhoneDirectoryGroupings1DataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="PhoneDirectoryGroupings1DataSet3.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PhoneDirectoryGroupings1DataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="testDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>testDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="tmpDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>tmpDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
@@ -132,6 +164,12 @@
     <EmbeddedResource Include="Form3.resx">
       <DependentUpon>Form3.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form4.resx">
+      <DependentUpon>Form4.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form5.resx">
+      <DependentUpon>Form5.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -140,6 +178,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="FinalDataSet.xsc">
+      <DependentUpon>FinalDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FinalDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinalDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinalDataSet.xss">
+      <DependentUpon>FinalDataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -183,10 +232,45 @@
     <None Include="PhoneDirectoryGroupings1DataSet2.xss">
       <DependentUpon>PhoneDirectoryGroupings1DataSet2.xsd</DependentUpon>
     </None>
+    <None Include="PhoneDirectoryGroupings1DataSet3.xsc">
+      <DependentUpon>PhoneDirectoryGroupings1DataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="PhoneDirectoryGroupings1DataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PhoneDirectoryGroupings1DataSet3.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PhoneDirectoryGroupings1DataSet3.xss">
+      <DependentUpon>PhoneDirectoryGroupings1DataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="testDataSet.xsc">
+      <DependentUpon>testDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="testDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>testDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="testDataSet.xss">
+      <DependentUpon>testDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="tmpDataSet.xsc">
+      <DependentUpon>tmpDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="tmpDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>tmpDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="tmpDataSet.xss">
+      <DependentUpon>tmpDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PhoneDirectoryGroupings1.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="PhoneDirectoryGroupings1.accdb" />
+    <Content Include="test.accdb" />
+    <Content Include="tmp.accdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

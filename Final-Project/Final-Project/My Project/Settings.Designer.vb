@@ -64,6 +64,26 @@ Namespace My
                 Return CType(Me("PhoneDirectoryGroupings1ConnectionString"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\test.accdb")>  _
+        Public ReadOnly Property testConnectionString() As String
+            Get
+                Return CType(Me("testConnectionString"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\tmp.accdb")>  _
+        Public ReadOnly Property tmpConnectionString() As String
+            Get
+                Return CType(Me("tmpConnectionString"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

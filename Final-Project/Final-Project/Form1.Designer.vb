@@ -28,16 +28,16 @@ Partial Class frmMain
         Me.lstDirectories = New System.Windows.Forms.ListBox()
         Me.dgvData = New System.Windows.Forms.DataGridView()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PhoneDirectoryGroupings1DataSet = New Final_Project.PhoneDirectoryGroupings1DataSet()
-        Me.PhoneDirectoryGroupsTableAdapter = New Final_Project.PhoneDirectoryGroupings1DataSetTableAdapters.PhoneDirectoryGroupsTableAdapter()
-        Me.TelephoneListingsTableAdapter = New Final_Project.PhoneDirectoryGroupings1DataSetTableAdapters.TelephoneListingsTableAdapter()
         Me.btnMatainDir = New System.Windows.Forms.Button()
         Me.btnMatainPhone = New System.Windows.Forms.Button()
         Me.btnRefresh = New System.Windows.Forms.Button()
         Me.btnExit = New System.Windows.Forms.Button()
+        Me.FinalDataSet = New Final_Project.FinalDataSet()
+        Me.TelephoneListingsTableAdapter = New Final_Project.FinalDataSetTableAdapters.TelephoneListingsTableAdapter()
+        Me.PhoneDirectoryGroupsTableAdapter = New Final_Project.FinalDataSetTableAdapters.PhoneDirectoryGroupsTableAdapter()
         CType(Me.dgvData, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PhoneDirectoryGroupings1DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FinalDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -80,20 +80,7 @@ Partial Class frmMain
         'BindingSource1
         '
         Me.BindingSource1.DataMember = "TelephoneListings"
-        Me.BindingSource1.DataSource = Me.PhoneDirectoryGroupings1DataSet
-        '
-        'PhoneDirectoryGroupings1DataSet
-        '
-        Me.PhoneDirectoryGroupings1DataSet.DataSetName = "PhoneDirectoryGroupings1DataSet"
-        Me.PhoneDirectoryGroupings1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'PhoneDirectoryGroupsTableAdapter
-        '
-        Me.PhoneDirectoryGroupsTableAdapter.ClearBeforeFill = True
-        '
-        'TelephoneListingsTableAdapter
-        '
-        Me.TelephoneListingsTableAdapter.ClearBeforeFill = True
+        Me.BindingSource1.DataSource = Me.FinalDataSet
         '
         'btnMatainDir
         '
@@ -131,6 +118,19 @@ Partial Class frmMain
         Me.btnExit.Text = "Exit"
         Me.btnExit.UseVisualStyleBackColor = True
         '
+        'FinalDataSet
+        '
+        Me.FinalDataSet.DataSetName = "FinalDataSet"
+        Me.FinalDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'TelephoneListingsTableAdapter
+        '
+        Me.TelephoneListingsTableAdapter.ClearBeforeFill = True
+        '
+        'PhoneDirectoryGroupsTableAdapter
+        '
+        Me.PhoneDirectoryGroupsTableAdapter.ClearBeforeFill = True
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 21.0!)
@@ -150,7 +150,7 @@ Partial Class frmMain
         Me.Text = "Phone Directory"
         CType(Me.dgvData, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PhoneDirectoryGroupings1DataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FinalDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -161,11 +161,11 @@ Partial Class frmMain
     Friend WithEvents lstDirectories As ListBox
     Friend WithEvents dgvData As DataGridView
     Friend WithEvents BindingSource1 As BindingSource
-    Friend WithEvents PhoneDirectoryGroupings1DataSet As PhoneDirectoryGroupings1DataSet
-    Friend WithEvents PhoneDirectoryGroupsTableAdapter As PhoneDirectoryGroupings1DataSetTableAdapters.PhoneDirectoryGroupsTableAdapter
-    Friend WithEvents TelephoneListingsTableAdapter As PhoneDirectoryGroupings1DataSetTableAdapters.TelephoneListingsTableAdapter
     Friend WithEvents btnMatainDir As Button
     Friend WithEvents btnMatainPhone As Button
     Friend WithEvents btnRefresh As Button
     Friend WithEvents btnExit As Button
+    Friend WithEvents FinalDataSet As FinalDataSet
+    Friend WithEvents TelephoneListingsTableAdapter As FinalDataSetTableAdapters.TelephoneListingsTableAdapter
+    Friend WithEvents PhoneDirectoryGroupsTableAdapter As FinalDataSetTableAdapters.PhoneDirectoryGroupsTableAdapter
 End Class
