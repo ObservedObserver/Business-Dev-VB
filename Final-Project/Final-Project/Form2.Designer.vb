@@ -23,15 +23,17 @@ Partial Class frmDir
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DirectoryGroupLabel As System.Windows.Forms.Label
-        Dim DescriptonLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDir))
+        Dim DescriptonLabel1 As System.Windows.Forms.Label
+        Dim DirectoryGroupLabel1 As System.Windows.Forms.Label
         Me.lblDirName = New System.Windows.Forms.Label()
         Me.txtDirName = New System.Windows.Forms.TextBox()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.btExit = New System.Windows.Forms.Button()
         Me.BindingNavigator1 = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.FinalDataSet = New Final_Project.FinalDataSet()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
@@ -44,37 +46,18 @@ Partial Class frmDir
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.btnUpdate = New System.Windows.Forms.ToolStripButton()
         Me.TableAdapterManager = New Final_Project.PhoneDirectoryGroupings1DataSetTableAdapters.TableAdapterManager()
-        Me.DirectoryGroupTextBox = New System.Windows.Forms.TextBox()
-        Me.DescriptonTextBox = New System.Windows.Forms.TextBox()
-        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.FinalDataSet = New Final_Project.FinalDataSet()
         Me.PhoneDirectoryGroupsTableAdapter = New Final_Project.FinalDataSetTableAdapters.PhoneDirectoryGroupsTableAdapter()
         Me.Label1 = New System.Windows.Forms.Label()
-        DirectoryGroupLabel = New System.Windows.Forms.Label()
-        DescriptonLabel = New System.Windows.Forms.Label()
+        Me.TableAdapterManager1 = New Final_Project.FinalDataSetTableAdapters.TableAdapterManager()
+        Me.DescriptonTextBox1 = New System.Windows.Forms.TextBox()
+        Me.DirectoryGroupTextBox1 = New System.Windows.Forms.TextBox()
+        DescriptonLabel1 = New System.Windows.Forms.Label()
+        DirectoryGroupLabel1 = New System.Windows.Forms.Label()
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BindingNavigator1.SuspendLayout()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FinalDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'DirectoryGroupLabel
-        '
-        DirectoryGroupLabel.AutoSize = True
-        DirectoryGroupLabel.Location = New System.Drawing.Point(213, 80)
-        DirectoryGroupLabel.Name = "DirectoryGroupLabel"
-        DirectoryGroupLabel.Size = New System.Drawing.Size(136, 21)
-        DirectoryGroupLabel.TabIndex = 9
-        DirectoryGroupLabel.Text = "Directory Group:"
-        '
-        'DescriptonLabel
-        '
-        DescriptonLabel.AutoSize = True
-        DescriptonLabel.Location = New System.Drawing.Point(253, 148)
-        DescriptonLabel.Name = "DescriptonLabel"
-        DescriptonLabel.Size = New System.Drawing.Size(96, 21)
-        DescriptonLabel.TabIndex = 10
-        DescriptonLabel.Text = "Descripton:"
         '
         'lblDirName
         '
@@ -136,6 +119,16 @@ Partial Class frmDir
         Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
         Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorAddNewItem.Text = "新添"
+        '
+        'BindingSource1
+        '
+        Me.BindingSource1.DataMember = "PhoneDirectoryGroups"
+        Me.BindingSource1.DataSource = Me.FinalDataSet
+        '
+        'FinalDataSet
+        '
+        Me.FinalDataSet.DataSetName = "FinalDataSet"
+        Me.FinalDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'BindingNavigatorCountItem
         '
@@ -225,32 +218,10 @@ Partial Class frmDir
         'TableAdapterManager
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.PhoneDirectoryGroupsTableAdapter = Nothing
         Me.TableAdapterManager.TelephoneListingsTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = Final_Project.PhoneDirectoryGroupings1DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
-        'DirectoryGroupTextBox
-        '
-        Me.DirectoryGroupTextBox.Location = New System.Drawing.Point(387, 80)
-        Me.DirectoryGroupTextBox.Name = "DirectoryGroupTextBox"
-        Me.DirectoryGroupTextBox.Size = New System.Drawing.Size(309, 29)
-        Me.DirectoryGroupTextBox.TabIndex = 10
-        '
-        'DescriptonTextBox
-        '
-        Me.DescriptonTextBox.Location = New System.Drawing.Point(387, 148)
-        Me.DescriptonTextBox.Name = "DescriptonTextBox"
-        Me.DescriptonTextBox.Size = New System.Drawing.Size(309, 29)
-        Me.DescriptonTextBox.TabIndex = 11
-        '
-        'BindingSource1
-        '
-        Me.BindingSource1.DataMember = "PhoneDirectoryGroups"
-        Me.BindingSource1.DataSource = Me.FinalDataSet
-        '
-        'FinalDataSet
-        '
-        Me.FinalDataSet.DataSetName = "FinalDataSet"
-        Me.FinalDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'PhoneDirectoryGroupsTableAdapter
         '
@@ -265,16 +236,57 @@ Partial Class frmDir
         Me.Label1.TabIndex = 30
         Me.Label1.Text = "Hint:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Rember to click the ""save"" button " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "after you add or delete a record."
         '
+        'TableAdapterManager1
+        '
+        Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager1.PhoneDirectoryGroupsTableAdapter = Me.PhoneDirectoryGroupsTableAdapter
+        Me.TableAdapterManager1.TelephoneListingsTableAdapter = Nothing
+        Me.TableAdapterManager1.UpdateOrder = Final_Project.FinalDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'DescriptonLabel1
+        '
+        DescriptonLabel1.AutoSize = True
+        DescriptonLabel1.Location = New System.Drawing.Point(253, 151)
+        DescriptonLabel1.Name = "DescriptonLabel1"
+        DescriptonLabel1.Size = New System.Drawing.Size(96, 21)
+        DescriptonLabel1.TabIndex = 30
+        DescriptonLabel1.Text = "Descripton:"
+        '
+        'DescriptonTextBox1
+        '
+        Me.DescriptonTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "Descripton", True))
+        Me.DescriptonTextBox1.Location = New System.Drawing.Point(387, 148)
+        Me.DescriptonTextBox1.Name = "DescriptonTextBox1"
+        Me.DescriptonTextBox1.Size = New System.Drawing.Size(309, 29)
+        Me.DescriptonTextBox1.TabIndex = 31
+        '
+        'DirectoryGroupLabel1
+        '
+        DirectoryGroupLabel1.AutoSize = True
+        DirectoryGroupLabel1.Location = New System.Drawing.Point(213, 89)
+        DirectoryGroupLabel1.Name = "DirectoryGroupLabel1"
+        DirectoryGroupLabel1.Size = New System.Drawing.Size(136, 21)
+        DirectoryGroupLabel1.TabIndex = 31
+        DirectoryGroupLabel1.Text = "Directory Group:"
+        '
+        'DirectoryGroupTextBox1
+        '
+        Me.DirectoryGroupTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "DirectoryGroup", True))
+        Me.DirectoryGroupTextBox1.Location = New System.Drawing.Point(387, 82)
+        Me.DirectoryGroupTextBox1.Name = "DirectoryGroupTextBox1"
+        Me.DirectoryGroupTextBox1.Size = New System.Drawing.Size(309, 29)
+        Me.DirectoryGroupTextBox1.TabIndex = 32
+        '
         'frmDir
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 21.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(869, 496)
+        Me.Controls.Add(DirectoryGroupLabel1)
+        Me.Controls.Add(Me.DirectoryGroupTextBox1)
+        Me.Controls.Add(DescriptonLabel1)
+        Me.Controls.Add(Me.DescriptonTextBox1)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(DescriptonLabel)
-        Me.Controls.Add(Me.DescriptonTextBox)
-        Me.Controls.Add(DirectoryGroupLabel)
-        Me.Controls.Add(Me.DirectoryGroupTextBox)
         Me.Controls.Add(Me.BindingNavigator1)
         Me.Controls.Add(Me.btExit)
         Me.Controls.Add(Me.btnSearch)
@@ -311,10 +323,11 @@ Partial Class frmDir
     Friend WithEvents BindingNavigatorSeparator2 As ToolStripSeparator
     Friend WithEvents btnUpdate As ToolStripButton
     Friend WithEvents TableAdapterManager As PhoneDirectoryGroupings1DataSetTableAdapters.TableAdapterManager
-    Friend WithEvents DirectoryGroupTextBox As TextBox
-    Friend WithEvents DescriptonTextBox As TextBox
     Friend WithEvents BindingSource1 As BindingSource
     Friend WithEvents FinalDataSet As FinalDataSet
     Friend WithEvents PhoneDirectoryGroupsTableAdapter As FinalDataSetTableAdapters.PhoneDirectoryGroupsTableAdapter
     Friend WithEvents Label1 As Label
+    Friend WithEvents TableAdapterManager1 As FinalDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents DescriptonTextBox1 As TextBox
+    Friend WithEvents DirectoryGroupTextBox1 As TextBox
 End Class

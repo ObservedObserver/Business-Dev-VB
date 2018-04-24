@@ -1150,7 +1150,7 @@ Partial Public Class FinalDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property FullName() As String
             Get
-                Return CType(Me(Me.tableTelephoneListings.FullNameColumn),String)
+                Return CType(Me(Me.tableTelephoneListings.FullNameColumn).ToString, String)
             End Get
             Set
                 Me(Me.tableTelephoneListings.FullNameColumn) = value
@@ -1161,8 +1161,8 @@ Partial Public Class FinalDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property FirstName() As String
             Get
-                Try 
-                    Return CType(Me(Me.tableTelephoneListings.FirstNameColumn),String)
+                Try
+                    Return CType(Me(Me.tableTelephoneListings.FirstNameColumn).ToString, String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("表““TelephoneListings””中列““FirstName””的值为 DBNull。", e)
                 End Try
@@ -1176,8 +1176,8 @@ Partial Public Class FinalDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property LastName() As String
             Get
-                Try 
-                    Return CType(Me(Me.tableTelephoneListings.LastNameColumn),String)
+                Try
+                    Return CType(Me(Me.tableTelephoneListings.LastNameColumn).ToString, String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("表““TelephoneListings””中列““LastName””的值为 DBNull。", e)
                 End Try
@@ -1191,8 +1191,8 @@ Partial Public Class FinalDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property PhoneNumbe_1() As String
             Get
-                Try 
-                    Return CType(Me(Me.tableTelephoneListings.PhoneNumbe_1Column),String)
+                Try
+                    Return CType(Me(Me.tableTelephoneListings.PhoneNumbe_1Column).ToString, String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("表““TelephoneListings””中列““PhoneNumbe 1””的值为 DBNull。", e)
                 End Try
@@ -1206,8 +1206,8 @@ Partial Public Class FinalDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property PhoneType1() As String
             Get
-                Try 
-                    Return CType(Me(Me.tableTelephoneListings.PhoneType1Column),String)
+                Try
+                    Return CType(Me(Me.tableTelephoneListings.PhoneType1Column).ToString, String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("表““TelephoneListings””中列““PhoneType1””的值为 DBNull。", e)
                 End Try
@@ -1221,8 +1221,8 @@ Partial Public Class FinalDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property PhoneNumber2() As String
             Get
-                Try 
-                    Return CType(Me(Me.tableTelephoneListings.PhoneNumber2Column),String)
+                Try
+                    Return CType(Me(Me.tableTelephoneListings.PhoneNumber2Column).ToString, String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("表““TelephoneListings””中列““PhoneNumber2””的值为 DBNull。", e)
                 End Try
@@ -1236,8 +1236,8 @@ Partial Public Class FinalDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property PhoneType2() As String
             Get
-                Try 
-                    Return CType(Me(Me.tableTelephoneListings.PhoneType2Column),String)
+                Try
+                    Return CType(Me(Me.tableTelephoneListings.PhoneType2Column).ToString, String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("表““TelephoneListings””中列““PhoneType2””的值为 DBNull。", e)
                 End Try
@@ -1251,8 +1251,8 @@ Partial Public Class FinalDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property PhoneNumber3() As String
             Get
-                Try 
-                    Return CType(Me(Me.tableTelephoneListings.PhoneNumber3Column),String)
+                Try
+                    Return CType(Me(Me.tableTelephoneListings.PhoneNumber3Column).ToString, String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("表““TelephoneListings””中列““PhoneNumber3””的值为 DBNull。", e)
                 End Try
@@ -1266,8 +1266,8 @@ Partial Public Class FinalDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property PhoneType3() As String
             Get
-                Try 
-                    Return CType(Me(Me.tableTelephoneListings.PhoneType3Column),String)
+                Try
+                    Return CType(Me(Me.tableTelephoneListings.PhoneType3Column).ToString, String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("表““TelephoneListings””中列““PhoneType3””的值为 DBNull。", e)
                 End Try
@@ -1281,8 +1281,8 @@ Partial Public Class FinalDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property StreetAddress1() As String
             Get
-                Try 
-                    Return CType(Me(Me.tableTelephoneListings.StreetAddress1Column),String)
+                Try
+                    Return CType(Me(Me.tableTelephoneListings.StreetAddress1Column).ToString, String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("表““TelephoneListings””中列““StreetAddress1””的值为 DBNull。", e)
                 End Try
@@ -1296,8 +1296,8 @@ Partial Public Class FinalDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property StreetAddress2() As String
             Get
-                Try 
-                    Return CType(Me(Me.tableTelephoneListings.StreetAddress2Column),String)
+                Try
+                    Return CType(Me(Me.tableTelephoneListings.StreetAddress2Column).ToString, String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("表““TelephoneListings””中列““StreetAddress2””的值为 DBNull。", e)
                 End Try
@@ -1311,8 +1311,8 @@ Partial Public Class FinalDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property City() As String
             Get
-                Try 
-                    Return CType(Me(Me.tableTelephoneListings.CityColumn),String)
+                Try
+                    Return CType(Me(Me.tableTelephoneListings.CityColumn).ToString, String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("表““TelephoneListings””中列““City””的值为 DBNull。", e)
                 End Try
@@ -1326,8 +1326,8 @@ Partial Public Class FinalDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property ProvinceState() As String
             Get
-                Try 
-                    Return CType(Me(Me.tableTelephoneListings.ProvinceStateColumn),String)
+                Try
+                    Return CType(Me(Me.tableTelephoneListings.ProvinceStateColumn).ToString, String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("表““TelephoneListings””中列““ProvinceState””的值为 DBNull。", e)
                 End Try
@@ -1341,8 +1341,8 @@ Partial Public Class FinalDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property ZipCode() As String
             Get
-                Try 
-                    Return CType(Me(Me.tableTelephoneListings.ZipCodeColumn),String)
+                Try
+                    Return CType(Me(Me.tableTelephoneListings.ZipCodeColumn).ToString, String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("表““TelephoneListings””中列““ZipCode””的值为 DBNull。", e)
                 End Try

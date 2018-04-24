@@ -10,13 +10,13 @@
         Dim query = From line In FinalDataSet.PhoneDirectoryGroups
                     Select line.DirectoryGroup
         For Each name As String In query
-            lstDirectories.Items.Add(name)
+            lstDirectories.Items.Add(name.ToUpper)
         Next
     End Sub
     Public Sub displayList()
         Dim query = From line In FinalDataSet.TelephoneListings
                     Where line.GROUPNAME = currentDir
-                    Select line.FullName, line.PhoneNumbe_1, line.PhoneType1
+                    Select line.FullName, line.PhoneNumbe_1, line.PhoneType1, line.StreetAddress1, line.City, line.ProvinceState, line.ZipCode, line.PhoneNumber2, line.PhoneType2
         dgvData.DataSource = query.ToList
         dgvData.SelectionMode = DataGridViewSelectionMode.FullRowSelect
     End Sub

@@ -28,11 +28,11 @@ Partial Class frmMain
         Me.lstDirectories = New System.Windows.Forms.ListBox()
         Me.dgvData = New System.Windows.Forms.DataGridView()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.FinalDataSet = New Final_Project.FinalDataSet()
         Me.btnMatainDir = New System.Windows.Forms.Button()
         Me.btnMatainPhone = New System.Windows.Forms.Button()
         Me.btnRefresh = New System.Windows.Forms.Button()
         Me.btnExit = New System.Windows.Forms.Button()
-        Me.FinalDataSet = New Final_Project.FinalDataSet()
         Me.TelephoneListingsTableAdapter = New Final_Project.FinalDataSetTableAdapters.TelephoneListingsTableAdapter()
         Me.PhoneDirectoryGroupsTableAdapter = New Final_Project.FinalDataSetTableAdapters.PhoneDirectoryGroupsTableAdapter()
         CType(Me.dgvData, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -69,7 +69,6 @@ Partial Class frmMain
         '
         'dgvData
         '
-        Me.dgvData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvData.Location = New System.Drawing.Point(329, 99)
         Me.dgvData.Name = "dgvData"
@@ -81,6 +80,11 @@ Partial Class frmMain
         '
         Me.BindingSource1.DataMember = "TelephoneListings"
         Me.BindingSource1.DataSource = Me.FinalDataSet
+        '
+        'FinalDataSet
+        '
+        Me.FinalDataSet.DataSetName = "FinalDataSet"
+        Me.FinalDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'btnMatainDir
         '
@@ -117,11 +121,6 @@ Partial Class frmMain
         Me.btnExit.TabIndex = 8
         Me.btnExit.Text = "Exit"
         Me.btnExit.UseVisualStyleBackColor = True
-        '
-        'FinalDataSet
-        '
-        Me.FinalDataSet.DataSetName = "FinalDataSet"
-        Me.FinalDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'TelephoneListingsTableAdapter
         '
