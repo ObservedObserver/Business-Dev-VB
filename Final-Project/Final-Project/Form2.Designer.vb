@@ -23,9 +23,9 @@ Partial Class frmDir
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDir))
         Dim DescriptonLabel1 As System.Windows.Forms.Label
         Dim DirectoryGroupLabel1 As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDir))
         Me.lblDirName = New System.Windows.Forms.Label()
         Me.txtDirName = New System.Windows.Forms.TextBox()
         Me.btnSearch = New System.Windows.Forms.Button()
@@ -58,6 +58,24 @@ Partial Class frmDir
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FinalDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'DescriptonLabel1
+        '
+        DescriptonLabel1.AutoSize = True
+        DescriptonLabel1.Location = New System.Drawing.Point(253, 151)
+        DescriptonLabel1.Name = "DescriptonLabel1"
+        DescriptonLabel1.Size = New System.Drawing.Size(96, 21)
+        DescriptonLabel1.TabIndex = 30
+        DescriptonLabel1.Text = "Descripton:"
+        '
+        'DirectoryGroupLabel1
+        '
+        DirectoryGroupLabel1.AutoSize = True
+        DirectoryGroupLabel1.Location = New System.Drawing.Point(213, 89)
+        DirectoryGroupLabel1.Name = "DirectoryGroupLabel1"
+        DirectoryGroupLabel1.Size = New System.Drawing.Size(136, 21)
+        DirectoryGroupLabel1.TabIndex = 31
+        DirectoryGroupLabel1.Text = "Directory Group:"
         '
         'lblDirName
         '
@@ -243,31 +261,13 @@ Partial Class frmDir
         Me.TableAdapterManager1.TelephoneListingsTableAdapter = Nothing
         Me.TableAdapterManager1.UpdateOrder = Final_Project.FinalDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'DescriptonLabel1
-        '
-        DescriptonLabel1.AutoSize = True
-        DescriptonLabel1.Location = New System.Drawing.Point(253, 151)
-        DescriptonLabel1.Name = "DescriptonLabel1"
-        DescriptonLabel1.Size = New System.Drawing.Size(96, 21)
-        DescriptonLabel1.TabIndex = 30
-        DescriptonLabel1.Text = "Descripton:"
-        '
         'DescriptonTextBox1
         '
         Me.DescriptonTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "Descripton", True))
         Me.DescriptonTextBox1.Location = New System.Drawing.Point(387, 148)
         Me.DescriptonTextBox1.Name = "DescriptonTextBox1"
         Me.DescriptonTextBox1.Size = New System.Drawing.Size(309, 29)
-        Me.DescriptonTextBox1.TabIndex = 31
-        '
-        'DirectoryGroupLabel1
-        '
-        DirectoryGroupLabel1.AutoSize = True
-        DirectoryGroupLabel1.Location = New System.Drawing.Point(213, 89)
-        DirectoryGroupLabel1.Name = "DirectoryGroupLabel1"
-        DirectoryGroupLabel1.Size = New System.Drawing.Size(136, 21)
-        DirectoryGroupLabel1.TabIndex = 31
-        DirectoryGroupLabel1.Text = "Directory Group:"
+        Me.DescriptonTextBox1.TabIndex = 32
         '
         'DirectoryGroupTextBox1
         '
@@ -275,7 +275,7 @@ Partial Class frmDir
         Me.DirectoryGroupTextBox1.Location = New System.Drawing.Point(387, 82)
         Me.DirectoryGroupTextBox1.Name = "DirectoryGroupTextBox1"
         Me.DirectoryGroupTextBox1.Size = New System.Drawing.Size(309, 29)
-        Me.DirectoryGroupTextBox1.TabIndex = 32
+        Me.DirectoryGroupTextBox1.TabIndex = 31
         '
         'frmDir
         '
